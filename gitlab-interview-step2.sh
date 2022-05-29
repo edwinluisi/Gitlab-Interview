@@ -16,6 +16,16 @@
 # Date: May 29, 2022
 #######################################
 
+# Checking if the user is the 'root'
+if [ "$EUID" -ne 0 ]; then
+    echo -e "This script can only be executed by root!"
+    exit 1
+fi
+
+# Redirect stdout/stderr to a file
+echo -e "The output information regarding this execution can be found in the ./edwinluisi_gitlab-`date +"%Y-%m-%d_%H%M%S"`.log file.\n"
+exec > edwinluisi_gitlab-`date +"%Y-%m-%d_%H%M%S"`.log 2>&1
+
 FIRST_SCRPT_OUT=/tmp/gitlab-interview-step1.out
 FILE_CHKSUM_HASH=/var/log/current_users
 FILE_CHKSUM_HASH_CMP=/tmp/current_users_cmp.md5
