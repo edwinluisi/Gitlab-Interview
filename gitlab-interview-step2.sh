@@ -36,7 +36,7 @@ elif
 	printf 'There were no changes found in the last run.\n' "$FILE_CHKSUM_HASH" "$FILE_CHKSUM_HASH_CMP"
     rm $FILE_CHKSUM_HASH_CMP
 else
-	printf 'There are new changes. Please, see the "%s" to check the changes logs.\n' "$FILE_USER_CHNGS"
+    printf 'There are new changes. Please, see the "%s" to check the changes logs.\n' "$FILE_USER_CHNGS"
     echo "`date "+%F_%H:%M:%S"` changes ocurred" >> $FILE_USER_CHNGS
     cat $FILE_CHKSUM_HASH_CMP > $FILE_CHKSUM_HASH
     echo -e "\nThe new MD5 file hash is: " `cat $FILE_CHKSUM_HASH`
