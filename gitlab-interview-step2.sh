@@ -23,8 +23,8 @@ if [ "$EUID" -ne 0 ]; then
 fi
 
 # Redirect stdout/stderr to a file
-echo -e "The output information regarding this execution can be found in the ./edwinluisi_gitlab-`date +"%Y-%m-%d_%H%M%S"`.log file.\n"
-exec > edwinluisi_gitlab-`date +"%Y-%m-%d_%H%M%S"`.log 2>&1
+echo -e "The output information regarding this execution can be found in the /root/edwinluisi_gitlab-`date +"%Y-%m-%d_%H%M%S"`.log file.\n"
+exec > /root/edwinluisi_gitlab-`date +"%Y-%m-%d_%H%M%S"`.log 2>&1
 
 FIRST_SCRPT_OUT=/tmp/gitlab-interview-step1.out
 FILE_CHKSUM_HASH=/var/log/current_users
